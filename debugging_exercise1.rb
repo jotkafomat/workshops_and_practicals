@@ -12,15 +12,10 @@ def encode(plaintext, key)
 end
 
 def decode(ciphertext, key)
-  p "this is ciphertext: #{ciphertext}"
-  p "this is key: #{key}"
   cipher = key.chars.uniq + (('a'...'z').to_a - key.chars)
-  p "__________"
-p "this is cipher: #{cipher}"
   plaintext_chars = ciphertext.chars.map do |char|
-    cipher[65 - char.ord]
+    cipher[-65 + char.ord]
   end
-  p "this is plaintext_chars #{plaintext_chars}"
   plaintext_chars.join
 end
 
